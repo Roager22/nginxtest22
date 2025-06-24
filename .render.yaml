@@ -1,12 +1,27 @@
 services:
   - type: web
+    name: nginx
+    env: docker
+    dockerfilePath: ./nginx/Dockerfile
+    buildCommand: docker-compose build nginx
+    startCommand: docker-compose up nginx
+    envVars:
+      - key: NGINX_HOST
+        value: "localhost"
+    plan: free
+
+  - type: web
     name: service1
     env: docker
-    buildCommand: "docker build -t service1 ."
-    startCommand: "docker run service1"
+    dockerfilePath: ./service1/Dockerfile
+    buildCommand: docker-compose build service1
+    startCommand: docker-compose up service1
+    plan: free
 
   - type: web
     name: service2
     env: docker
-    buildCommand: "docker build -t service2 ."
-    startCommand: "docker run service2"
+    dockerfilePath: ./service2/Dockerfile
+    buildCommand: docker-compose build service2
+    startCommand: docker-compose up service2
+    plan: free
