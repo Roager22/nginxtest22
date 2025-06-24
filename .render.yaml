@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: service1
+    env: docker
+    buildCommand: "docker build -t service1 ."
+    startCommand: "docker run service1"
+
+  - type: web
+    name: service2
+    env: docker
+    buildCommand: "docker build -t service2 ."
+    startCommand: "docker run service2"

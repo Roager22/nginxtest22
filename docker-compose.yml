@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - service1
+      - service2
+
+  service1:
+    build: ./service1
+    ports:
+      - "3000:3000"
+
+  service2:
+    build: ./service2
+    ports:
+      - "3001:3001"
