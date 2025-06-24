@@ -10,11 +10,11 @@ services:
       - service2
 
   service1:
-    build: ./service1
+    build: ./test-service-1
     ports:
       - "3000:3000"
 
   service2:
-    build: ./service2
+    build: ./test-service-2
     ports:
       - "3001:3001"
